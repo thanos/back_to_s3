@@ -1,4 +1,6 @@
-# BackToS3
+# Back To S3
+
+## Features
 
 1. Deigned to be run as a standalone app locally on your computer.
 2. Uses a work queue, `que`, to back up files form any local drive to your `S3` bucket.
