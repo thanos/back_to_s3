@@ -18,6 +18,25 @@ defmodule BackToS3Web.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+
+    live "/backup_configs", BackupConfigLive.Index, :index
+    live "/backup_configs/new", BackupConfigLive.Form, :new
+    live "/backup_configs/:id", BackupConfigLive.Show, :show
+    live "/backup_configs/:id/edit", BackupConfigLive.Form, :edit
+
+    live "/backups", BackupLive.Index, :index
+    live "/backups/new", BackupLive.Form, :new
+    live "/backups/:id", BackupLive.Show, :show
+    live "/backups/:id/edit", BackupLive.Form, :edit
+
+
+    live "/files", FileLive.Index, :index
+    live "/files/new", FileLive.Form, :new
+    live "/files/:id", FileLive.Show, :show
+    live "/files/:id/edit", FileLive.Form, :edit
+
+
   end
 
   # Other scopes may use custom stacks.

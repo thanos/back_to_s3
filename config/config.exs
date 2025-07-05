@@ -7,6 +7,11 @@
 # General application configuration
 import Config
 
+
+
+
+config :mnesia, dir:  ~c"mnesia/#{Mix.env}/#{node()}"
+
 config :back_to_s3,
   ecto_repos: [BackToS3.Repo],
   generators: [timestamp_type: :utc_datetime]

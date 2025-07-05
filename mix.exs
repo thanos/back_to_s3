@@ -56,14 +56,14 @@ defmodule BackToS3.MixProject do
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.26"},
-      {:jason, "~> 1.2"},
+      {:jason, "~> 1.4"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
     ] ++ [
+      {:dir_walker, "~> 0.0.8"},
       {:ex_aws, "~> 2.5"},
       {:ex_aws_s3, "~> 2.5"},
       {:hackney, "~> 1.24"},
-      {:jason, "~> 1.4"},
       {:que, "~> 0.10.1"},
       {:sweet_xml, "~> 0.7.5"},
     ]
