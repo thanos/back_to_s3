@@ -4,7 +4,7 @@ defmodule BackToS3Web.PageController do
   def home(conn, _params) do
     # The home page is often custom made,
     # so skip the default app layout.
-
+    dbg(BackToS3.Archive.AWSSetup.get())
     with {:ok, _} <- BackToS3.Archive.AWSSetup.get do
       render(conn, :home, layout: false)
     else

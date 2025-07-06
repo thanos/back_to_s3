@@ -39,7 +39,6 @@ alias BackToS3.Archive.AWSSetup
 
   defp apply_action(socket, :edit, _params) do
     {:ok, aws_setup} =  AWSSetup.get()
-    dbg(aws_setup)
     socket
     |> assign(:page_title, "Edit AWS aws_setups")
     |> assign(:aws_setup, aws_setup)
@@ -61,7 +60,6 @@ alias BackToS3.Archive.AWSSetup
   @impl true
   def handle_event("validate", %{"aws_setup" => aws_setup_params}, socket) do
     changeset = AWSSetup.change(socket.assigns.aws_setup, aws_setup_params)
-    dbg(to_form(changeset, action: :validate) )
     {:noreply, assign(socket, form: to_form(changeset, action: :validate))}
   end
 
@@ -84,7 +82,6 @@ alias BackToS3.Archive.AWSSetup
   end
 
   defp save_aws_setup(socket, :new, aws_setup_params) do
-    dbg(aws_setup_params)
     case AWSSetup.create(aws_setup_params) do
       {:ok, aws_setup} ->
 
@@ -94,11 +91,10 @@ alias BackToS3.Archive.AWSSetup
          |> push_navigate(to: return_path(socket.assigns.return_to, aws_setup))}
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        dbg(to_form(changeset, validate: true))
         {:noreply, assign(socket, form: to_form(changeset,  action: :validate))}
     end
   end
 
-  defp return_path("index", _aws_setup), do: ~p"/aws_setups"
-  defp return_path("show", aws_setup), do: ~p"/aws_setups/#{aws_setup}"
+  defp return_path("index", _aws_setup), do: ~p"/"
+  defp return_path("show", aws_setup), do: ~p"/aws-setup"
 end

@@ -23,6 +23,7 @@ defmodule BackToS3Web.Router do
     live "/aws-setup/edit", AWSSetup.Form, :edit
     live "/aws-setup/", AWSSetup.Show, :show
 
+
     live "/settings", SettingLive.Index, :index
     live "/settings/new", SettingLive.Form, :new
     live "/settings/:id", SettingLive.Show, :show

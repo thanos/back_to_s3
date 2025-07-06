@@ -8,7 +8,7 @@ defmodule BackToS3Web.AWSSetup.Show do
     ~H"""
     <Layouts.app flash={@flash}>
       <.header>
-        <:subtitle>This is a setting record from your database.</:subtitle>
+        <:subtitle>This is your AWS setup</:subtitle>
         <:actions>
           <.button navigate={~p"/"}>
             <.icon name="hero-arrow-left" />
