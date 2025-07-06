@@ -5,11 +5,11 @@ defmodule BackToS3Web.PageController do
     # The home page is often custom made,
     # so skip the default app layout.
 
-    with {:ok, _} <- BackToS3.Archive.get_s3_setup() do
+    with {:ok, _} <- BackToS3.Archive.AWSSetup.get do
       render(conn, :home, layout: false)
     else
       {:error, _} ->
-        conn |> Phoenix.Controller.redirect(to: "/settings")
+        conn |> Phoenix.Controller.redirect(to: "/aws-setup/new", return_to: "/")
     end
 
 

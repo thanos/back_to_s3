@@ -12,7 +12,7 @@ defmodule BackToS3.Archive do
   def get_s3_setup do
     with %{value: id} <- Repo.get_by(Setting, group: "AWS", key: "AWS_ACCESS_KEY_ID"),
     %{value: secret} <- Repo.get_by(Setting, group: "AWS", key: "AWS_SECRET_ACCESS_KEY") do
-      {:ok, %{id: id, secret: secret}}
+      {:ok, %{aws_access_key_id: id, aws_secret_access_key: secret}}
     else
       _ -> {:error, "No S3 setup found"}
     end
