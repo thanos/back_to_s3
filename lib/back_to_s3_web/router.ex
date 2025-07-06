@@ -20,6 +20,11 @@ defmodule BackToS3Web.Router do
     get "/", PageController, :home
 
 
+    live "/settings", SettingLive.Index, :index
+    live "/settings/new", SettingLive.Form, :new
+    live "/settings/:id", SettingLive.Show, :show
+    live "/settings/:id/edit", SettingLive.Form, :edit
+
 
 
 
