@@ -30,6 +30,12 @@ defmodule BackToS3Web.Router do
     live "/settings/:id/edit", SettingLive.Form, :edit
 
 
+    live "/backup_defs", BackupDefLive.Index, :index
+    live "/backup_defs/new", BackupDefLive.Form, :new
+    live "/backup_defs/:id", BackupDefLive.Show, :show
+    live "/backup_defs/:id/edit", BackupDefLive.Form, :edit
+
+
 
 
   end

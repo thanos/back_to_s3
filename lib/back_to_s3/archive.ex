@@ -111,4 +111,100 @@ defmodule BackToS3.Archive do
   def change_setting(%Setting{} = setting, attrs \\ %{}) do
     Setting.changeset(setting, attrs)
   end
+
+  alias BackToS3.Archive.BackupDef
+
+  @doc """
+  Returns the list of backup_defs.
+
+  ## Examples
+
+      iex> list_backup_defs()
+      [%BackupDef{}, ...]
+
+  """
+  def list_backup_defs do
+    Repo.all(BackupDef)
+  end
+
+  @doc """
+  Gets a single backup_def.
+
+  Raises `Ecto.NoResultsError` if the Backup def does not exist.
+
+  ## Examples
+
+      iex> get_backup_def!(123)
+      %BackupDef{}
+
+      iex> get_backup_def!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_backup_def!(id), do: Repo.get!(BackupDef, id)
+
+  @doc """
+  Creates a backup_def.
+
+  ## Examples
+
+      iex> create_backup_def(%{field: value})
+      {:ok, %BackupDef{}}
+
+      iex> create_backup_def(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_backup_def(attrs) do
+    %BackupDef{}
+    |> BackupDef.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a backup_def.
+
+  ## Examples
+
+      iex> update_backup_def(backup_def, %{field: new_value})
+      {:ok, %BackupDef{}}
+
+      iex> update_backup_def(backup_def, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_backup_def(%BackupDef{} = backup_def, attrs) do
+    backup_def
+    |> BackupDef.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a backup_def.
+
+  ## Examples
+
+      iex> delete_backup_def(backup_def)
+      {:ok, %BackupDef{}}
+
+      iex> delete_backup_def(backup_def)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_backup_def(%BackupDef{} = backup_def) do
+    Repo.delete(backup_def)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking backup_def changes.
+
+  ## Examples
+
+      iex> change_backup_def(backup_def)
+      %Ecto.Changeset{data: %BackupDef{}}
+
+  """
+  def change_backup_def(%BackupDef{} = backup_def, attrs \\ %{}) do
+    BackupDef.changeset(backup_def, attrs)
+  end
 end
